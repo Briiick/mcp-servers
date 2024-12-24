@@ -1,4 +1,93 @@
-# Model Context Protocol servers
+# Model Context Protocol Servers Briiick Likes
+
+I made this fork as a way to keep track of the MCP servers I use often. Last updated December 24th 2024.
+
+Here they are in no particular order:
+- **[Brave Search](src/brave-search)** - Web and local search using Brave's Search API
+- **[Filesystem](src/filesystem)** - Secure file operations with configurable access controls
+- **[Memory](src/memory)** - Knowledge graph-based persistent memory system
+- **[Puppeteer](src/puppeteer)** - Browser automation and web scraping
+- **[Sequential Thinking](src/sequentialthinking)** - Dynamic and reflective problem-solving through thought sequences
+- **[Time](src/time)** - Time and timezone conversion capabilities
+- **[Fetch](https://github.com/zcaceres/fetch-mcp)** - A server that flexibly fetches HTML, JSON, Markdown, or plaintext
+- **[Anki-MCP](https://github.com/CamdenClark/anki-mcp-server)** - An Anki server for the Model Context Protocol
+- **[Roam-Research-MCP](https://github.com/2b3pro/roam-research-mcp)** - Interact with Roam Research using the Model Context Protocol
+
+Clone this repo to get access to these MCP Servers.
+
+In each directory, as well as the main one, you need to run:
+
+```bash
+npm install
+npm run build
+```
+
+Then use `code ~/Library/Application\ Support/Claude/claude_desktop_config.json` to open your config up (if you have a standard installation of Claude desktop on Mac).
+
+Here is what your config should look like:
+
+```json
+{
+  "mcpServers": {
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+      "env": {
+        "BRAVE_API_KEY": "<brave-api-key>"
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "<path-to-have-access-to>"
+      ]
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"]
+    },
+    "puppeteer": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-puppeteer"]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    },
+    "time": {
+      "command": "uvx",
+      "args": ["mcp-server-time"]
+    },
+    "fetch": {
+      "command": "node",
+      "args": [
+        "<absolute-path>/fetch-mcp/dist/index.js"
+      ]
+    },
+    "anki-mcp": {
+      "command": "node",
+      "args": [
+        "<absolute-path>/anki-mcp-server/build/index.js"
+      ]
+    },
+    "roam-research": {
+      "command": "node",
+      "args": ["<absolute-path>/roam-research/build/index.js"],
+      "env": {
+        "ROAM_API_TOKEN": "your-api-token",
+        "ROAM_GRAPH_NAME": "your-graph-name"
+      }
+    }
+  }
+}
+
+```
+
+---
+
+# From Original Documentation
 
 This repository is a collection of *reference implementations* for the [Model Context Protocol](https://modelcontextprotocol.io/) (MCP), as well as references
 to community built servers and additional resources.
@@ -46,7 +135,7 @@ Official integrations are maintained by companies building production ready MCP 
 - <img height="12" width="12" src="https://cdn.simpleicons.org/jetbrains" /> **[JetBrains](https://github.com/JetBrains/mcp-jetbrains)** – Work on your code with JetBrains IDEs
 - **[Needle](https://github.com/JANHMS/needle-mcp)** - Production-ready RAG out of the box to search and retrieve data from your own documents.
 - **[Neon](https://github.com/neondatabase/mcp-server-neon)** - Interact with the Neon serverless Postgres platform
-- <img height="12" width="12" src="https://neo4j.com/favicon.ico" alt="Neo4j Logo" /> **[Neo4j](https://github.com/neo4j-contrib/mcp-neo4j/)** - Neo4j graph database server (schema + read/write-cypher) and separate graph database backed memory 
+- <img height="12" width="12" src="https://neo4j.com/favicon.ico" alt="Neo4j Logo" /> **[Neo4j](https://github.com/neo4j-contrib/mcp-neo4j/)** - Neo4j graph database server (schema + read/write-cypher) and separate graph database backed memory
 - <img height="12" width="12" src="https://www.tinybird.co/favicon.ico" alt="Tinybird Logo" /> **[Tinybird](https://github.com/tinybirdco/mcp-tinybird)** - Interact with Tinybird serverless ClickHouse platform
 - <img height="12" width="12" src="https://pics.fatwang2.com/56912e614b35093426c515860f9f2234.svg" /> [Search1API](https://github.com/fatwang2/search1api-mcp) - One API for Search, Crawling, and Sitemaps
 - <img height="12" width="12" src="https://qdrant.tech/img/brand-resources-logos/logomark.svg" /> **[Qdrant](https://github.com/qdrant/mcp-server-qdrant/)** - Implement semantic memory layer on top of the Qdrant vector search engine
@@ -61,7 +150,7 @@ A growing set of community-developed and maintained servers demonstrates various
 
 - **[MCP Installer](https://github.com/anaisbetts/mcp-installer)** - This server is a server that installs other MCP servers for you.
 - **[NS Travel Information](https://github.com/r-huijts/ns-mcp-server)** - Access Dutch Railways (NS) real-time train travel information and disruptions through the official NS API.
-- **[Spotify](https://github.com/varunneal/spotify-mcp)** - This MCP allows an LLM to play and use Spotify. 
+- **[Spotify](https://github.com/varunneal/spotify-mcp)** - This MCP allows an LLM to play and use Spotify.
 - **[Inoyu](https://github.com/sergehuber/inoyu-mcp-unomi-server)** - Interact with an Apache Unomi CDP customer data platform to retrieve and update customer profiles
 - **[Vega-Lite](https://github.com/isaacwasserman/mcp-vegalite-server)** - Generate visualizations from fetched data using the VegaLite format and renderer.
 - **[Snowflake](https://github.com/isaacwasserman/mcp-snowflake-server)** - This MCP server enables LLMs to interact with Snowflake databases, allowing for secure and controlled data operations.
