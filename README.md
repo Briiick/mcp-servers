@@ -10,7 +10,7 @@ Here they are in no particular order:
 - **[Sequential Thinking](src/sequentialthinking)** - Dynamic and reflective problem-solving through thought sequences
 - **[Time](src/time)** - Time and timezone conversion capabilities
 - **[Fetch](https://github.com/zcaceres/fetch-mcp)** - A server that flexibly fetches HTML, JSON, Markdown, or plaintext
-- **[Anki-MCP](https://github.com/CamdenClark/anki-mcp-server)** - An Anki server for the Model Context Protocol
+- **Anki Add-Note (originally forked from [Anki-MCP](https://github.com/CamdenClark/anki-mcp-server))** - the fork wasn't complete, so I just tweaked it to get add-note working.
 - **[Roam-Research-MCP](https://github.com/2b3pro/roam-research-mcp)** - Interact with Roam Research using the Model Context Protocol
 
 Clone this repo to get access to these MCP Servers.
